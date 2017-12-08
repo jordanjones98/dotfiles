@@ -6,6 +6,11 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+" dont create those annoying backup files that clog up folders
+set nobackup       "no backup files
+set nowritebackup  "only in case you don't want a backup file while editing
+set noswapfile     "no swap files
+
 " Vundle Plugins
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
@@ -20,9 +25,6 @@ call vundle#end()
 
 
 syntax enable
-
-" Set Color Scheme
-colorscheme atom-dark-256
 
 set backspace=indent,eol,start		"Make backspace work."
 let mapleader = "," 			"Set default leader to , instead of \"
