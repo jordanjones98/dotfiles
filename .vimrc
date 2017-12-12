@@ -20,6 +20,8 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'townk/vim-autoclose'
 Plugin 'tpope/vim-commentary'
 Plugin 'powerline/powerline'
+Plugin 'Valloric/YouCompleteMe' "Auto complete
+Plugin 'scrooloose/nerdtree' "Breaking down adding nerd tree
 call vundle#end()
 "End Vundle Config
 
@@ -52,11 +54,15 @@ map <leader>l :set list!<CR>
 
 
 "------File Explorer-----"
-let g:netrw_liststyle = 3 "Sets the style of the lists
-let g:netrw_banner = 0 "Gets rid of the banner on top of the file explorer
-let g:netrw_browse_split = 4 "Opens files in the previous window
-let g:netrw_winsize = 20 "Sets the width of the file explorer to 20% of the screen
-let g:netrw_altv = 1
+"let g:netrw_liststyle = 3 "Sets the style of the lists
+"let g:netrw_banner = 0 "Gets rid of the banner on top of the file explorer
+"let g:netrw_browse_split = 4 "Opens files in the previous window
+"let g:netrw_winsize = 20 "Sets the width of the file explorer to 20% of the screen
+"let g:netrw_altv = 1
+
+" Start nerdtree on startup
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 "---------Mark whitespace with red---------"
@@ -80,6 +86,7 @@ set incsearch
 
 "Resize file explorer to 40
 nmap <Leader>e :vertical resize 40 <cr>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Functions                                    "
@@ -126,7 +133,7 @@ augroup autosourcing
 	autocmd BufWritePost .vimrc source %
 augroup END
 
-augroup ProjectDrawer
-  autocmd!
-  autocmd VimEnter * :Vexplore
-augroup END
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
