@@ -87,6 +87,8 @@ set incsearch
 "Resize file explorer to 40
 nmap <Leader>e :vertical resize 40 <cr>
 
+"Map semi-colon to colon
+nnoremap ; :
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Functions                                    "
