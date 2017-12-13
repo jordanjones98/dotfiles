@@ -6,11 +6,6 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" dont create those annoying backup files that clog up folders
-set nobackup       "no backup files
-set nowritebackup  "only in case you don't want a backup file while editing
-set noswapfile     "no swap files
-
 " Vundle Plugins
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
@@ -25,6 +20,10 @@ Plugin 'scrooloose/nerdtree' "Breaking down adding nerd tree
 call vundle#end()
 "End Vundle Config
 
+" dont create those annoying backup files that clog up folders
+set nobackup       "no backup files
+set nowritebackup  "only in case you don't want a backup file while editing
+set noswapfile     "no swap files
 
 syntax enable
 
