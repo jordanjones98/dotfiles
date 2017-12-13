@@ -17,6 +17,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'powerline/powerline'
 Plugin 'Valloric/YouCompleteMe' "Auto complete
 Plugin 'scrooloose/nerdtree' "Breaking down adding nerd tree
+Plugin 'skielbasa/vim-material-monokai'
 call vundle#end()
 "End Vundle Config
 
@@ -36,7 +37,9 @@ set tabstop=4
 set shiftwidth=4
 
 "---------Visuals-------"
-colorscheme atom-dark-256
+set background=dark
+set termguicolors
+colorscheme material-monokai
 set t_co=256				"Set 256 colors"
 set linebreak				"Sets line breaks
 set wrap				"Sets wraps
