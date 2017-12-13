@@ -26,7 +26,7 @@ set nobackup       "no backup files
 set nowritebackup  "only in case you don't want a backup file while editing
 set noswapfile     "no swap files
 
-syntax enable
+syntax enable " enable syntax hylighting
 
 set backspace=indent,eol,start		"Make backspace work."
 let mapleader = "," 			"Set default leader to , instead of \"
@@ -39,7 +39,7 @@ set shiftwidth=4
 "---------Visuals-------"
 set background=dark
 set termguicolors
-colorscheme material-monokai
+colorscheme material-monokai " Set colorscheme
 set t_co=256				"Set 256 colors"
 set linebreak				"Sets line breaks
 set wrap				"Sets wraps
@@ -53,19 +53,9 @@ set guifont=Monospace\ 20
 set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR>
 
-
-
-"------File Explorer-----"
-"let g:netrw_liststyle = 3 "Sets the style of the lists
-"let g:netrw_banner = 0 "Gets rid of the banner on top of the file explorer
-"let g:netrw_browse_split = 4 "Opens files in the previous window
-"let g:netrw_winsize = 20 "Sets the width of the file explorer to 20% of the screen
-"let g:netrw_altv = 1
-
 " Start nerdtree on startup
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
 
 "---------Mark whitespace with red---------"
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -136,8 +126,3 @@ augroup autosourcing
 	autocmd!
 	autocmd BufWritePost .vimrc source %
 augroup END
-
-"augroup ProjectDrawer
-"  autocmd!
-"  autocmd VimEnter * :Vexplore
-"augroup END
