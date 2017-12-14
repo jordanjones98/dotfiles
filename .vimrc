@@ -18,6 +18,8 @@ Plugin 'powerline/powerline'
 Plugin 'Valloric/YouCompleteMe' "Auto complete
 Plugin 'scrooloose/nerdtree' "Breaking down adding nerd tree
 Plugin 'skielbasa/vim-material-monokai'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tmhedberg/matchit'
 call vundle#end()
 "End Vundle Config
 
