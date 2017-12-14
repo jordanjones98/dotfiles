@@ -19,7 +19,5 @@ source $ZSH/oh-my-zsh.sh
 # source alias file
 source ~/dotfiles/.aliases
 
-eval "$(direnv hook zsh)"
-
 export NVM_DIR="/Users/Jordan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
