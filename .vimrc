@@ -20,6 +20,7 @@ Plugin 'scrooloose/nerdtree' "Breaking down adding nerd tree
 Plugin 'skielbasa/vim-material-monokai'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/matchit'
+Plugin 'wikitopian/hardmode' " Vim hard mode
 call vundle#end()
 "End Vundle Config
 
@@ -48,6 +49,7 @@ set wrap				"Sets wraps
 set colorcolumn=80 " sets a color at the 80 character mark
 
 set showmode " Shows the mode in the bottom of the screen
+set showcmd " Shows the command in the bottom of the screen
 set linespace=3
 set guifont=Monospace\ 20
 
@@ -83,6 +85,10 @@ nmap <Leader>e :vertical resize 40 <cr>
 
 "Map semi-colon to colon
 nnoremap ; :
+
+" Vim hard mode stuff
+
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR> " Toggle hard mode with leader h
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Functions                                    "
