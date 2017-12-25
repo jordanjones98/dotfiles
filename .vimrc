@@ -21,6 +21,7 @@ Plugin 'skielbasa/vim-material-monokai'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/matchit'
 Plugin 'wikitopian/hardmode' " Vim hard mode
+Plugin 'kien/ctrlp.vim' " To find files \"Fuzzily\"
 call vundle#end()
 "End Vundle Config
 
