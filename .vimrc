@@ -22,6 +22,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/matchit'
 Plugin 'wikitopian/hardmode' " Vim hard mode
 Plugin 'kien/ctrlp.vim' " To find files \"Fuzzily\"
+Plugin 'vim-syntastic/syntastic'
 call vundle#end()
 "End Vundle Config
 
@@ -61,6 +62,16 @@ map <leader>l :set list!<CR>
 " Start nerdtree on startup
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" Syntastic recommended settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "---------Mark whitespace with red---------"
 highlight ExtraWhitespace ctermbg=red guibg=red
