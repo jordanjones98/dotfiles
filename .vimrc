@@ -42,6 +42,9 @@ set tabstop=4
 set shiftwidth=4
 
 "---------Visuals-------"
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
 set background=dark
 set termguicolors
 colorscheme material-monokai " Set colorscheme
