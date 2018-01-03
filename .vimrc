@@ -49,6 +49,7 @@ set t_co=256				"Set 256 colors"
 set linebreak				"Sets line breaks
 set wrap				"Sets wraps
 set colorcolumn=80 " sets a color at the 80 character mark
+set cursorline
 
 set showmode " Shows the mode in the bottom of the screen
 set showcmd " Shows the command in the bottom of the screen
