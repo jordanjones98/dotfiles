@@ -15,7 +15,6 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'townk/vim-autoclose'
 Plugin 'tpope/vim-commentary'
 Plugin 'powerline/powerline'
-Plugin 'Valloric/YouCompleteMe' "Auto complete
 Plugin 'scrooloose/nerdtree' "Breaking down adding nerd tree
 Plugin 'skielbasa/vim-material-monokai'
 Plugin 'tpope/vim-fugitive'
@@ -23,6 +22,7 @@ Plugin 'tmhedberg/matchit'
 Plugin 'wikitopian/hardmode' " Vim hard mode
 Plugin 'kien/ctrlp.vim' " To find files \"Fuzzily\"
 Plugin 'vim-syntastic/syntastic'
+Plugin 'leafgarland/typescript-vim' " Typescript stuff
 call vundle#end()
 "End Vundle Config
 
