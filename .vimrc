@@ -89,23 +89,20 @@ set hlsearch
 set incsearch
 set ignorecase				"Searching is not case sensitive
 
-"make it easy to edit vimrc file."
-nmap <Leader>ev :tabedit $MYVIMRC<cr>
-
 "Add highlight removal
 nmap <Leader><space> :nohlsearch<cr>
 set incsearch
-
-"Resize file explorer to 40
-nmap <Leader>e :vertical resize 40 <cr>
 
 "Map semi-colon to colon
 nnoremap ; :
 
 " Vim hard mode stuff
-
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR> " Toggle hard mode with leader h
 
+
+"Don't unselect the selection when changing indentation in visual mode.
+xnoremap < <gv
+xnoremap > >gv
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Functions                                    "
 "                                                                             "
