@@ -7,10 +7,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Vundle Plugins
-Plugin 'tpope/vim-surround'
-Plugin 'mattn/emmet-vim'
+Plugin 'tpope/vim-surround' " Cool surrounding text
+Plugin 'mattn/emmet-vim' " emmet html completion
 Plugin 'bling/vim-airline'
-set laststatus=2 "Required for vim-airline
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'townk/vim-autoclose'
 Plugin 'tpope/vim-commentary'
@@ -21,8 +20,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/matchit'
 Plugin 'wikitopian/hardmode' " Vim hard mode
 Plugin 'kien/ctrlp.vim' " To find files \"Fuzzily\"
-Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-syntastic/syntastic' " Syntax checker
 Plugin 'leafgarland/typescript-vim' " Typescript stuff
+Plugin 'tweekmonster/startuptime.vim' " See startup time
 call vundle#end()
 " }
 
@@ -83,6 +83,10 @@ match ExtraWhitespace /\s\+$/
 		autocmd StdinReadPre * let s:std_in=1
 		autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 	" }
+
+	" Vim Airline {
+		set laststatus=2 "Required for vim-airline
+"	}
 " }
 
 " Searching {
