@@ -1,4 +1,4 @@
-" Vundle Config
+" Vundle Config {
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -24,74 +24,81 @@ Plugin 'kien/ctrlp.vim' " To find files \"Fuzzily\"
 Plugin 'vim-syntastic/syntastic'
 Plugin 'leafgarland/typescript-vim' " Typescript stuff
 call vundle#end()
-"End Vundle Config
+" }
 
-" dont create those annoying backup files that clog up folders
-set nobackup       "no backup files
-set nowritebackup  "only in case you don't want a backup file while editing
-set noswapfile     "no swap files
-
+" Misc File Setup {
 syntax enable " enable syntax hylighting
 
 set backspace=indent,eol,start		"Make backspace work."
 let mapleader = "," 			"Set default leader to , instead of \"
 set number				"Activates line numbers."
+set nobackup       "no backup files
+set nowritebackup  "only in case you don't want a backup file while editing
+set noswapfile     "no swap files
+set tabstop=4 " Tabbing
+set shiftwidth=4 " Tabbing
+set linebreak				"Sets line breaks
+set wrap				"Sets wraps
 
-"-----Tabbing----------"
-set tabstop=4
-set shiftwidth=4
+" }
 
-"---------Visuals-------"
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" Visuals {
 
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " Make colors in vim work when in tmux
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " Make colors in vim work when in tmux
 set background=dark
 set termguicolors
 colorscheme material-monokai " Set colorscheme
 set t_co=256				"Set 256 colors"
-set linebreak				"Sets line breaks
-set wrap				"Sets wraps
 set colorcolumn=80 " sets a color at the 80 character mark
-set cursorline
-
+set cursorline " Makes a colored line on the current working line
+set guifont=Monospace\ 20
 set showmode " Shows the mode in the bottom of the screen
 set showcmd " Shows the command in the bottom of the screen
 set linespace=3
-set guifont=Monospace\ 20
-
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR>
 
-" Start nerdtree on startup
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-" Syntastic recommended settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"---------Mark whitespace with red---------"
+" Mark whitesapce with red
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-"------------------Searching----------"
+" }
+
+" Plugin Specific Settings {
+	" Syntastic {
+	set statusline+=%#warningmsg#
+	set statusline+=%{SyntasticStatuslineFlag()}
+	set statusline+=%*
+
+	let g:syntastic_always_populate_loc_list = 1
+	let g:syntastic_auto_loc_list = 1
+	let g:syntastic_check_on_open = 1
+	let g:syntastic_check_on_wq = 0
+	" }
+
+	" NERDTree {
+		" Start nerdtree on startup
+		autocmd StdinReadPre * let s:std_in=1
+		autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+	" }
+" }
+
+" Searching {
 set hlsearch 				"Highlights words when they are searched."
 set smartcase
 set showmatch
 set hlsearch
 set incsearch
 set ignorecase				"Searching is not case sensitive
-
-"Add highlight removal
-nmap <Leader><space> :nohlsearch<cr>
 set incsearch
+" }
+
+" Mapping {
+
+" Add Highlight Removal
+nmap <Leader><space> :nohlsearch<cr>
 
 "Map semi-colon to colon
 nnoremap ; :
@@ -99,20 +106,20 @@ nnoremap ; :
 " Vim hard mode stuff
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR> " Toggle hard mode with leader h
 
-
 "Don't unselect the selection when changing indentation in visual mode.
 xnoremap < <gv
 xnoremap > >gv
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                                Functions                                    "
-"                                                                             "
-" WinMove from https://github.com/nicknisi/vim-workshop/                      "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Make moving windows more 'vim like'
 " Also stole this from Vaughn https://github.com/vkottler/dotfiles/blob/master/.vimrc
 map <C-h> :call WinMove('h')<cr>
 map <C-j> :call WinMove('j')<cr>
 map <C-k> :call WinMove('k')<cr>
 map <C-l> :call WinMove('l')<cr>
+
+" }
+
+" Functions {
 
 " Window movement shortcuts
 " move to the window in the direction shown, or create a new window
@@ -140,10 +147,14 @@ function! s:DiffWithSaved()
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
+" }
 
-"--------Auto commands-----------"
+" Auto Commands {
+
 "Automatically source vimrc file on save"
 augroup autosourcing
 	autocmd!
 	autocmd BufWritePost .vimrc source %
 augroup END
+
+" }
