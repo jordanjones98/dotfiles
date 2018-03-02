@@ -23,6 +23,7 @@ Plugin 'wikitopian/hardmode' " Vim hard mode
 Plugin 'kien/ctrlp.vim' " To find files \"Fuzzily\"
 Plugin 'vim-syntastic/syntastic'
 Plugin 'leafgarland/typescript-vim' " Typescript stuff
+Plugin 'editorconfig/editorconfig-vim'
 call vundle#end()
 " }
 
@@ -37,6 +38,7 @@ set nowritebackup  "only in case you don't want a backup file while editing
 set noswapfile     "no swap files
 set tabstop=4 " Tabbing
 set shiftwidth=4 " Tabbing
+set expandtab
 set linebreak				"Sets line breaks
 set wrap				"Sets wraps
 
