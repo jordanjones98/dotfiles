@@ -151,6 +151,15 @@ com! DiffSaved call s:DiffWithSaved()
 
 " }
 
+function! SetupEnvironment()
+  let l:path = expand('%:p')
+  if l:path =~ '/home/jordan/gitrepos/adv-java/hounds/hounds-angular'
+		setlocal expandtab smarttab textwidth=0
+      setlocal tabstop=2 shiftwidth=2
+  endif
+endfunction
+autocmd! BufReadPost,BufNewFile * call SetupEnvironment()
+
 " Auto Commands {
 
 "Automatically source vimrc file on save"
