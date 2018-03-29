@@ -14,7 +14,7 @@ plugins=(git)
 
 function chpwd() {
     emulate -L zsh
-    ls
+    ls -a
 }
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
