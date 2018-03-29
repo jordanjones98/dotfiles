@@ -168,4 +168,11 @@ augroup autosourcing
 	autocmd BufWritePost .vimrc source %
 augroup END
 
+" Set no relative number when in insert mode, or focus goes out of the pane.
+augroup relnumbertoggle
+    autocmd!
+    autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+    autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
+augroup END
+
 " }
