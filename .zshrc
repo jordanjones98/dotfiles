@@ -12,6 +12,11 @@ plugins=(git)
 
 # User configuration
 
+function chpwd() {
+    emulate -L zsh
+    ls
+}
+
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
