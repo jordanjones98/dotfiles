@@ -16,6 +16,7 @@ Plugin 'townk/vim-autoclose'
 Plugin 'tpope/vim-commentary'
 Plugin 'powerline/powerline'
 Plugin 'scrooloose/nerdtree' "Breaking down adding nerd tree
+Plugin 'Xuyuanp/nerdtree-git-plugin' " Add git stuff to NerdTree
 Plugin 'skielbasa/vim-material-monokai'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/matchit'
@@ -84,6 +85,25 @@ match ExtraWhitespace /\s\+$/
 		" Start nerdtree on startup
 		autocmd StdinReadPre * let s:std_in=1
 		autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+        let NERDTreeMinimalUI = 1
+        let NERDTreeDirArrows = 1
+
+        " Git Nerd Tree config {
+            "let g:NerdTreDTreeIndicatorMapCustom = {
+            "    \ "Modified"  : "✹",
+            "    \ "Staged"    : "✚",
+            "    \ "Untracked" : "✭",
+            "    \ "Renamed"   : "➜",
+            "    \ "Unmerged"  : "═",
+            "    \ "Deleted"   : "✖",
+            "    \ "Dirty"     : "✗",
+            "    \ "Clean"     : "✔︎",
+            "    \ 'Ignored'   : '☒',
+            "    \ "Unknown"   : "?"
+            "\ }
+
+        " }
 	" }
 " }
 
@@ -107,6 +127,9 @@ nnoremap ; :
 
 " Vim hard mode stuff
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR> " Toggle hard mode with leader h
+
+" Toggle NERDTree
+nnoremap <leader>n <Esc>:NERDTreeToggle<CR>
 
 "Don't unselect the selection when changing indentation in visual mode.
 xnoremap < <gv
