@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/Jordan/.oh-my-zsh
+export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.composer/vendor/bin:$PATH:$HOME/dotfiles/scripts"
 export TERM="screen-256color"
 # Set name of the theme to load.
