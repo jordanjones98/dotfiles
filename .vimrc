@@ -25,6 +25,7 @@ Plugin 'kien/ctrlp.vim' " To find files \"Fuzzily\"
 Plugin 'vim-syntastic/syntastic'
 Plugin 'leafgarland/typescript-vim' " Typescript stuff
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'thaerkh/vim-indentguides'
 call vundle#end()
 " }
 
@@ -47,10 +48,12 @@ set wrap				"Sets wraps
 
 " Visuals {
 
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " Make colors in vim work when in tmux
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " Make colors in vim work when in tmux
+if has('macunix')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum" " Make colors in vim work when in tmux
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum" " Make colors in vim work when in tmux
+    set termguicolors
+endif
 set background=dark
-set termguicolors
 colorscheme material-monokai " Set colorscheme
 set t_co=256				"Set 256 colors"
 set colorcolumn=80 " sets a color at the 80 character mark
