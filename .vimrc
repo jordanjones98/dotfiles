@@ -18,6 +18,7 @@ Plugin 'powerline/powerline'
 Plugin 'scrooloose/nerdtree' "Breaking down adding nerd tree
 Plugin 'Xuyuanp/nerdtree-git-plugin' " Add git stuff to NerdTree
 Plugin 'skielbasa/vim-material-monokai'
+Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/matchit'
 Plugin 'wikitopian/hardmode' " Vim hard mode
@@ -54,7 +55,10 @@ if has('macunix')
     set termguicolors
 endif
 set background=dark
-colorscheme material-monokai " Set colorscheme
+colorscheme gruvbox " Set colorscheme
+
+let g:gruvbox_contrast_dark = 'hard'
+
 set t_co=256				"Set 256 colors"
 set colorcolumn=80 " sets a color at the 80 character mark
 set cursorline " Makes a colored line on the current working line
