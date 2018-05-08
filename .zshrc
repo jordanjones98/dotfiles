@@ -29,3 +29,6 @@ export NVM_DIR="/Users/Jordan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+#bindkey -v
+#export KEYTIMEOUT=1
