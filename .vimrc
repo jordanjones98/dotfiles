@@ -99,6 +99,14 @@ set ignorecase				"Searching is not case sensitive
 set incsearch
 " }
 
+
+" navigating Tabs {
+map <leader>p :tabp<CR>
+map <leader>n :tabn<CR>
+map <leader>t :tab split +Explore<CR>
+map <leader>T :Explore<CR>
+" }
+
 " Mapping {
 
 " Add Highlight Removal
