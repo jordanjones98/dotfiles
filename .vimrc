@@ -55,9 +55,7 @@ if has('macunix')
     set termguicolors
 endif
 set background=dark
-colorscheme gruvbox " Set colorscheme
-
-let g:gruvbox_contrast_dark = 'hard'
+colorscheme material-monokai " Set colorscheme
 
 set t_co=256				"Set 256 colors"
 set colorcolumn=80 " sets a color at the 80 character mark
@@ -141,6 +139,11 @@ nnoremap <leader>n <Esc>:NERDTreeToggle<CR>
 "Don't unselect the selection when changing indentation in visual mode.
 xnoremap < <gv
 xnoremap > >gv
+
+" Insert Mode Mappings
+inoremap II <Esc>I
+inoremap AA <Esc>A
+inoremap ZZ <Esc>zzli
 
 " Make moving windows more 'vim like'
 " Also stole this from Vaughn https://github.com/vkottler/dotfiles/blob/master/.vimrc
