@@ -12,7 +12,7 @@ function tmux_web {
  #echo "Split second pane.."
  tmux new-window -n server -t $SESSION_NAME
  #echo "Create third pane (server).."
- tmux select-window -t $SESSION_NAME:2
+ tmux select-window -t $SESSION_NAME:1
  tmux attach -t $SESSION_NAME
  #echo "Start tmux session $SESSION_NAME."
 }
