@@ -136,6 +136,8 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR> " Toggle hard mode with leade
 " Toggle NERDTree
 nnoremap <leader>n <Esc>:NERDTreeToggle<CR>
 
+nnoremap <leader>b <Esc>:buffers<CR>:buffer<Space>
+
 "Don't unselect the selection when changing indentation in visual mode.
 xnoremap < <gv
 xnoremap > >gv
