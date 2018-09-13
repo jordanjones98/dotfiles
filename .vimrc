@@ -44,6 +44,7 @@ set shiftwidth=4 " Tabbing
 set expandtab
 set linebreak				"Sets line breaks
 set wrap				"Sets wraps
+set breakindentopt=shift:4
 
 " }
 
