@@ -27,6 +27,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'leafgarland/typescript-vim' " Typescript stuff
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'thaerkh/vim-indentguides'
+Plugin 'majutsushi/tagbar'
+Plugin 'arcticicestudio/nord-vim'
 call vundle#end()
 " }
 
@@ -56,7 +58,8 @@ if has('macunix')
     set termguicolors
 endif
 set background=dark
-colorscheme material-monokai " Set colorscheme
+" colorscheme material-monokai " Set colorscheme
+colorscheme nord
 
 set t_co=256				"Set 256 colors"
 set colorcolumn=80 " sets a color at the 80 character mark

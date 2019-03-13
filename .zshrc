@@ -8,7 +8,7 @@ export TERM="screen-256color"
 # time that oh-my-zsh is loaded.
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
-plugins=(git)
+plugins=(git phing vi-mode docker)
 
 # POWERLEVEL9K CONFIG
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
