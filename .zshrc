@@ -8,7 +8,7 @@ export TERM="screen-256color"
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-plugins=(git)
+plugins=(git phing vi-mode docker)
 
 # User configuration
 
