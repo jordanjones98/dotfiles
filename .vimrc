@@ -23,12 +23,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/matchit'
 Plugin 'wikitopian/hardmode' " Vim hard mode
 Plugin 'kien/ctrlp.vim' " To find files \"Fuzzily\"
-Plugin 'vim-syntastic/syntastic'
 Plugin 'leafgarland/typescript-vim' " Typescript stuff
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'thaerkh/vim-indentguides'
 Plugin 'majutsushi/tagbar'
 Plugin 'arcticicestudio/nord-vim'
+Plugin 'shougo/deoplete.nvim'
 call vundle#end()
 " }
 
@@ -47,6 +47,9 @@ set expandtab
 set linebreak				"Sets line breaks
 set wrap				"Sets wraps
 set breakindentopt=shift:4
+set clipboard+=unnamed
+set undodir=~/.vim/undodir
+set undofile
 
 " }
 
@@ -69,8 +72,9 @@ set showmode " Shows the mode in the bottom of the screen
 set showcmd " Shows the command in the bottom of the screen
 set linespace=3
 " Visualize tabs and newlines
-set listchars=tab:▸\ ,eol:¬
+" set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR>
+map <leader>c :set number! relativenumber!<CR>
 
 " Mark whitesapce with red
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -78,17 +82,9 @@ match ExtraWhitespace /\s\+$/
 
 " }
 
-" Plugin Specific Settings {
-	" Syntastic {
-	set statusline+=%#warningmsg#
-	set statusline+=%{SyntasticStatuslineFlag()}
-	set statusline+=%*
-
-	let g:syntastic_always_populate_loc_list = 1
-	let g:syntastic_auto_loc_list = 1
-	let g:syntastic_check_on_open = 1
-	let g:syntastic_check_on_wq = 0
-	" }
+    " DeoPlete {
+        let g:deoplete#enable_at_startup = 1
+    " }
 
 	" NERDTree {
 		" Start nerdtree on startup
@@ -189,15 +185,6 @@ endfunction
 com! DiffSaved call s:DiffWithSaved()
 
 " }
-
-function! SetupEnvironment()
-  let l:path = expand('%:p')
-  if l:path =~ '/home/jordan/gitrepos/adv-java/hounds/hounds-angular'
-		setlocal expandtab smarttab textwidth=0
-      setlocal tabstop=2 shiftwidth=2
-  endif
-endfunction
-autocmd! BufReadPost,BufNewFile * call SetupEnvironment()
 
 " Auto Commands {
 
