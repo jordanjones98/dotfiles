@@ -39,3 +39,5 @@ export NVM_DIR="/Users/Jordan/.nvm"
 
 #bindkey -v
 #export KEYTIMEOUT=1
+
+eval $(thefuck --alias)

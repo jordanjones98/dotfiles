@@ -7,8 +7,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Vundle Plugins
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plugin 'tpope/vim-surround'
 Plugin 'mattn/emmet-vim'
 Plugin 'bling/vim-airline'
@@ -23,35 +21,18 @@ Plugin 'skielbasa/vim-material-monokai'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tmhedberg/matchit'
+Plugin 'wikitopian/hardmode' " Vim hard mode
 Plugin 'kien/ctrlp.vim' " To find files \"Fuzzily\"
 Plugin 'leafgarland/typescript-vim' " Typescript stuff
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'thaerkh/vim-indentguides'
 Plugin 'majutsushi/tagbar'
 Plugin 'arcticicestudio/nord-vim'
-Plugin 'psf/black', { 'tag': '19.10b0' }
-Plugin 'lepture/vim-jinja' " nunjucks syntax
-Plugin 'davidhalter/jedi-vim'
-Plugin 'python-mode/python-mode'
-Plugin 'liuchengxu/space-vim-theme'
-Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'branch': 'release/1.x',
-  \ 'for': [
-    \ 'javascript',
-    \ 'typescript',
-    \ 'css',
-    \ 'scss',
-    \ 'json',
-    \ 'markdown',
-    \ 'php',
-    \ 'python',
-    \ 'html' ] }
-Plugin 'AndrewRadev/splitjoin.vim'
-Plugin 'junegunn/gv.vim'
+Plugin 'shougo/deoplete.nvim'
 call vundle#end()
 " }
+
+let g:python3_host_prog = '/usr/bin/python3'
 
 " Misc File Setup {
 syntax enable " enable syntax hylighting
@@ -62,8 +43,8 @@ set number				"Activates line numbers."
 set nobackup       "no backup files
 set nowritebackup  "only in case you don't want a backup file while editing
 set noswapfile     "no swap files
-set tabstop=2 " Tabbing
-set shiftwidth=2 " Tabbing
+set tabstop=4 " Tabbing
+set shiftwidth=4 " Tabbing
 set expandtab
 set linebreak				"Sets line breaks
 set wrap				"Sets wraps
@@ -71,7 +52,6 @@ set breakindentopt=shift:4
 set clipboard+=unnamed
 set undodir=~/.vim/undodir
 set undofile
-set conceallevel=0 " Dont hide quotes. JUST SHOW ME THE FUCKING FILE HOW IT IS
 
 " }
 
@@ -85,7 +65,6 @@ endif
 set background=dark
 " colorscheme material-monokai " Set colorscheme
 colorscheme nord
-color space_vim_theme
 
 set t_co=256				"Set 256 colors"
 set colorcolumn=80 " sets a color at the 80 character mark
@@ -179,19 +158,6 @@ map <C-l> :call WinMove('l')<cr>
 
 " }
 
-" { python mode config
-let g:pymode_rope = 0
-let g:pymode_python = 'python3'
-" }
-
-" { jedi vim config
-let g:jedi#completions_enabled = 0
-" }
-
-" { jedi vim config
-let g:pymode_python = 'python3'
-" }
-
 " Functions {
 
 " Window movement shortcuts
@@ -224,16 +190,6 @@ com! DiffSaved call s:DiffWithSaved()
 
 " Auto Commands {
 
-" set filetypes as typescript.tsx
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-
-"Automatically run Black on python file save
-autocmd BufWritePre *.py execute ':Black'
-
-"Automatically run Prettier on Typescriptt file save
-autocmd BufWritePre *.tsx execute ':PrettierAsync'
-autocmd BufWritePre *.ts execute ':PrettierAsync'
-
 "Automatically source vimrc file on save"
 augroup autosourcing
 	autocmd!
@@ -248,59 +204,3 @@ augroup relnumbertoggle
 augroup END
 
 " }
-
-
-
-"coc config
-
-" Better display for messages
-set cmdheight=2
-
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
-
-" always show signcolumns
-set signcolumn=yes
-
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-command! -nargs=0 Format :call CocAction('format')
-
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
