@@ -50,12 +50,15 @@ Plugin 'prettier/vim-prettier', {
     \ 'html' ] }
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'junegunn/gv.vim'
+Plugin 'ryanoasis/vim-devicons'
 call vundle#end()
 " }
 
 " Misc File Setup {
 syntax enable " enable syntax hylighting
 
+set encoding=UTF-8
+let g:airline_powerline_fonts = 1
 set backspace=indent,eol,start		"Make backspace work."
 let mapleader = "," 			"Set default leader to , instead of \"
 set number				"Activates line numbers."
@@ -90,7 +93,8 @@ color space_vim_theme
 set t_co=256				"Set 256 colors"
 set colorcolumn=80 " sets a color at the 80 character mark
 set cursorline " Makes a colored line on the current working line
-set guifont=Monospace\ 20
+"set guifont=Monospace\ 20
+set guifont=Fira\ Code:h12
 set showmode " Shows the mode in the bottom of the screen
 set showcmd " Shows the command in the bottom of the screen
 set linespace=3
