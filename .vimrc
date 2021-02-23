@@ -1,6 +1,7 @@
 " Vundle Config {
 set nocompatible              " be iMproved, required
 filetype off                  " required
+let g:ale_disable_lsp = 1
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -34,6 +35,7 @@ Plugin 'lepture/vim-jinja' " nunjucks syntax
 Plugin 'davidhalter/jedi-vim'
 Plugin 'python-mode/python-mode'
 Plugin 'liuchengxu/space-vim-theme'
+Plugin 'dense-analysis/ale'
 Plugin 'peitalin/vim-jsx-typescript'
 Plugin 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
@@ -51,6 +53,7 @@ Plugin 'prettier/vim-prettier', {
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'junegunn/gv.vim'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'joonty/vdebug'
 call vundle#end()
 " }
 
@@ -138,6 +141,19 @@ match ExtraWhitespace /\s\+$/
         " }
 	" }
 " }
+"
+"ALE {
+  let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \}
+
+  let g:ale_fixers = {
+  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \   'javascript': ['prettier', 'eslint'],
+  \}
+
+  let g:ale_fix_on_save = 1
+"}
 
 " Searching {
 set hlsearch 				"Highlights words when they are searched."
