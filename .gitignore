@@ -5,3 +5,5 @@
 nbproject
 __pycache__
 venv
+.#*
+flycheck_*

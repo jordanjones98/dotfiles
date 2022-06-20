@@ -1,17 +1,21 @@
 #!/bin/bash
 function tmux_web {
  SESSION_NAME=$1
+ FIRST_WINDOW_NAME=terminal
+ SECOND_WINDOW_NAME=console
+ THIRD_WINDOW_NAME=frontend_server
+
  #echo "Create.."
- tmux new -s $SESSION_NAME -n editor -d
- #echo "Creat first pane (editor).."
- tmux send-keys -t $SESSION_NAME 'vim' C-m
- #echo "Run vim in first pane.."
- tmux new-window -n console -t $SESSION_NAME
- #echo "Create second pane (console).."
- tmux split-window -v -t $SESSION_NAME:2
- #echo "Split second pane.."
- tmux new-window -n server -t $SESSION_NAME
- #echo "Create third pane (server).."
+ tmux new -s $SESSION_NAME -n $FIRST_WINDOW_NAME -d
+ #echo "Creat first window.."
+ tmux new-window -n $SECOND_WINDOW_NAME -t $SESSION_NAME
+ #echo "Split second window.."
+ tmux send-keys -t $SESSION_NAME:$SECOND_WINDOW_NAME 'docker compose down && docker compose up backend --build' C-m
+ #echo "Run Docker in Second Window.."
+ tmux new-window -n $THIRD_WINDOW_NAME -t $SESSION_NAME
+ #echo "Create third window.."
+ tmux send-keys -t $SESSION_NAME:$THIRD_WINDOW_NAME 'cd frontend && npm start' C-m
+ #echo "Run NPM Server in Third Window.."
  tmux select-window -t $SESSION_NAME:1
  tmux attach -t $SESSION_NAME
  #echo "Start tmux session $SESSION_NAME."

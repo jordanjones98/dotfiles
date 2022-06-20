@@ -16,3 +16,6 @@ alias dexec="docker-compose exec app"
 alias gtags="ctags -R ."
 alias phresh="phing destroy && phing"
 alias vim="nvim"
+alias mr="!sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -"
+alias yars="cd ~/workspace/dcs-opypc && tns -s 'docker compose down && docker compose up backend --build' -t 'cd frontend && npm start'"
+alias python=python3
