@@ -7,7 +7,7 @@ fi
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.composer/vendor/bin:$PATH:$HOME/dotfiles/scripts:$HOME/.ebcli-virtual-env/executables"
+export PATH="$HOME/.composer/vendor/bin:$PATH:$HOME/dotfiles/scripts:$HOME/.ebcli-virtual-env/executables:/opt/homebrew/bin"
 export TERM="screen-256color"
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -39,10 +39,14 @@ source $ZSH/oh-my-zsh.sh
 # source alias file
 source ~/dotfiles/.aliases
 
-export NVM_DIR="/Users/Jordan/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 
 #bindkey -v
 #export KEYTIMEOUT=1
